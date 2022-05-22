@@ -70,6 +70,29 @@ Power-down requires only a single frame (with 1st byte = 0x2b)
 | 0x5C1      | 2A 00 00 60             | mic button (repeats periodically while button is held) |
 | 0x5C1      | 1A 00 00 60             | phone button (repeats periodically while button is held) |
 | 0x5C1      | 29 00 00 60             | return button (repeats periodically while button is held) |
+| ---------- | ----------------------- | ----------- |
+| 0x6C7      | 80 04 2B 57 00 05 01 xx | Dynaudio amp left/right fade (8-bit signed int. 0x80 = full left, 0x7f = full right |
+| 0x6C7      | 80 04 2B 58 00 05 01 xx | Dynaudio amp front/back balance (8-bit signed int. 0x80 = full back, 0x7f = full front |
+| 0x6C7      | 2B 50 00                | Dynaudio amp power down |
+| 0x6C7      | 1B 42                   | Dynaudio amp ??? (powerup frame 1) |
+| 0x6C7      | 1B 43                   | Dynaudio amp ??? (powerup frame 2) |
+| 0x6C7      | 1B 41                   | Dynaudio amp ??? (powerup frame 3) |
+| 0x6C7      | 2B 50 01                | Dynaudio amp ??? (powerup frame 4) - power up ? |
+| 0x6C7      | 2B 53 00                | Dynaudio amp ??? (powerup frame 5) |
+| 0x6C7      | 80 07 2B 55 78 00 00 00 | Dynaudio amp ??? (powerup frame 6) - resent periodically |
+| 0x6C7      | C0 22 22 00             | Dynaudio amp ??? (powerup frame 7) - resent periodically |
+| 0x6C7      | 80 07 2B 51 00 00 04 05 | Dynaudio amp ??? (powerup frame 8) |
+| 0x6C7      | C0 0A 08 FF             | Dynaudio amp ??? (powerup frame 9) |
+| 0x6C7      | 80 03 1B 52 00 00 0D    | Dynaudio amp ??? (powerup frame 10) |
+| 0x6C7      | 80 03 1B 54 00 00 0D    | Dynaudio amp ??? (powerup frame 11) |
+| 0x6C7      | 80 03 1B 57 00 00 0D    | Dynaudio amp ??? (powerup frame 12) |
+| 0x6C7      | 80 03 1B 58 00 00 0D    | Dynaudio amp ??? (powerup frame 13) |
+| 0x6C7      | 80 03 1B 59 00 00 0D    | Dynaudio amp ??? (powerup frame 14) |
+| 0x6C7      | 80 03 1B 5A 00 00 0D    | Dynaudio amp ??? (powerup frame 15) |
+| 0x6C7      | 80 03 1B 5B 00 00 0D    | Dynaudio amp ??? (powerup frame 16) |
+| 0x6C7      | 80 03 1B 5C 00 00 04    | Dynaudio amp ??? (powerup frame 17) |
+| 0x6C7      | 80 03 1B 5E 00 00 04    | Dynaudio amp ??? (powerup frame 18) |
+
 
 # Additional Resources
 * Using a Raspberry Pi to snoop the CAN bus with a $3 Ebay MCP2515
