@@ -59,6 +59,18 @@ fade/balance/etc settings, but the meaning of these frames is not yet known.
 
 Power-down requires only a single frame (with 1st byte = 0x2b)
 
+# VW Media Can bys data (100kbps)
+
+| Identifier | Data                    | Description |
+| -----------| ----------------------- | ----------- |
+| 0x5C1      | 06 00 00 60             | vol up (repeats periodically while button is held) |
+| 0x5C1      | 07 00 00 60             | vol down (repeats periodically while button is held) |
+| 0x5C1      | 03 00 00 60             | left button (repeats periodically while button is held) |
+| 0x5C1      | 02 00 00 60             | right button (repeats periodically while button is held) |
+| 0x5C1      | 2A 00 00 60             | mic button (repeats periodically while button is held) |
+| 0x5C1      | 1A 00 00 60             | phone button (repeats periodically while button is held) |
+| 0x5C1      | 29 00 00 60             | return button (repeats periodically while button is held) |
+
 # Additional Resources
 * Using a Raspberry Pi to snoop the CAN bus with a $3 Ebay MCP2515
   * This modification allows running the SPI interface at 3.3V while running

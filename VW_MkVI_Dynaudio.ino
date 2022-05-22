@@ -7,6 +7,7 @@
 MCP2515 mcp2515(10); //Use Pins: CS=10, SCK=14, MISO=15, MOSI=16
 #define wakePin 2
 #define pwrPin 9
+#define canIntPin 3
 #define RXLED 17
 #define Ser if(0) Serial1
 
@@ -74,10 +75,12 @@ void setup() {
   mcp2515.setNormalMode();
   pinMode(wakePin,INPUT);  //PUSH/PULL
   pinMode(RXLED, OUTPUT);
+  pinMode(canIntPin, INPUT_PULLUP);
   flash_led(3);
   Ser.println("Example: Write to CAN");
   //attachInterrupt(digitalPinToInterrupt(wakePin), wake2, CHANGE);
 }
+
 
 void ampPowerUp() {
   for (int i = 0; i < sizeof(canMsg_AmpEnable) / sizeof(can_frame); i++) {
