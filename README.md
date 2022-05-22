@@ -92,7 +92,17 @@ Power-down requires only a single frame (with 1st byte = 0x2b)
 | 0x6C7      | 80 03 1B 5B 00 00 0D    | Dynaudio amp ??? (powerup frame 16) |
 | 0x6C7      | 80 03 1B 5C 00 00 04    | Dynaudio amp ??? (powerup frame 17) |
 | 0x6C7      | 80 03 1B 5E 00 00 04    | Dynaudio amp ??? (powerup frame 18) |
-
+| ---------- | ----------------------- | The following data was collected by hugovw1976 (see link below) |
+| 0x2C3      | aa                      | aa: bit0 power on |
+| 0x635      | aa bb cc                | aa: bit0 lights on |
+| 0x466      | aa bb cc dd ee ff gg hh | bb: door-open - bit0: driver, bit1: passenger, bit2: rear-driver, bit3: rear passenger, bit4: hood, bit5: trunk |
+| 0x35B      | aa bb cc dd ee ff gg hh | ccbb: RPM*4 (unconfirmed) |
+| 0x527      | aa bb cc dd ee ff gg hh | ccbb: Speed (units?) (unconfirmed), ff: (outside temperature(C) +50)/2 |
+| 0x621      | aa bb cc dd ee ff gg    | aa: bit 2: wiper state, dd: fuel level (liters) (bit 7 is set to indicate low-fuel when <10l) |
+| 0x65D      | aa bb cc dd ee ff gg hh | ddeecc: odometer (unconfirmed) |
+| 0x351      | aa bb cc dd ee ff gg hh | aa: bit0: reverse (unconfirmed), cc: bit0: brake (unconfirmed)|
+| 0x571      | aa bb cc dd ee ff       | aa: (battery voltage * 10 + 50) / 2 |
+| 0x151      | aa bb cc dd             | bb: seat-belt (unconfirmed) |
 
 # Additional Resources
 * Using a Raspberry Pi to snoop the CAN bus with a $3 Ebay MCP2515
@@ -110,6 +120,7 @@ Power-down requires only a single frame (with 1st byte = 0x2b)
     the 'savvy' CAN bus analyzer GUI: https://www.youtube.com/watch?v=GOuglqFtmOE&t=23s
   * CANid database for various vendors: https://github.com/iDoka/awesome-automotive-can-id
   * DTB files for CANids for various vendors: https://github.com/commaai/opendbc
+  * XDA posting by hugovw1976 with some Golf6 Canids: https://forum.xda-developers.com/t/mtcd-kgl-px5-canbus-problem-with-vw-golf-6.3632690/post-73939457
 
 * Installing Optiboot on Pro Micro
   * NOTE: The official Optiboot github repo supports the Atmega32U4 now.
